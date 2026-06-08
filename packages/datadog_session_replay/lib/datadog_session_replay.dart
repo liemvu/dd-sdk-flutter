@@ -193,6 +193,10 @@ class DatadogSessionReplayConfiguration {
   /// Defaults to approximately 800×800 decoded pixels.
   int maxImagePixelBudget;
 
+  /// Minimum interval between Session Replay captures. When null, the default
+  /// capture timing is used.
+  Duration? minCaptureTiming;
+
   DatadogSessionReplayConfiguration({
     required this.replaySampleRate,
     this.textAndInputPrivacyLevel = TextAndInputPrivacyLevel.maskAll,
@@ -203,6 +207,7 @@ class DatadogSessionReplayConfiguration {
     this.fontFamilyTransform = const FontFamilyTransformConfig(),
     this.imageDownscaling = ImageDownscaling.disabled,
     this.maxImagePixelBudget = defaultMaxImagePixelBudget,
+    this.minCaptureTiming,
   });
 }
 

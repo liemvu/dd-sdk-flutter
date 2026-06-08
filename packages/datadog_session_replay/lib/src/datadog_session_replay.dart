@@ -125,7 +125,8 @@ class DatadogSessionReplay {
     /// Using the timer (instead of as part of addPostFrameCallback) allows
     /// Flutter to schedule this outside of the build phase, which means our
     /// tree capture shouldn't affect tree build time.
-    _captureTimer = Timer.periodic(minCaptureTiming, (timer) async {
+    _captureTimer = Timer.periodic(
+        _configuration.minCaptureTiming ?? minCaptureTiming, (timer) async {
       bool shouldWatchForNextFrame = true;
       if (_newFrameBuilt) {
         try {
